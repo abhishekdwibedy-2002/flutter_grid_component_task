@@ -1,0 +1,70 @@
+{
+    "data": [
+        {
+            "l2_categories_id": 9,
+            "l1_categories_id": 2,
+            "name": "Cost of goods sold",
+            "icon": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcScXlf11eeg4mfqdfA7nqYAuILop94_BYlVkKhTltcSb81lYABC"
+        },
+        {
+            "l2_categories_id": 10,
+            "l1_categories_id": 2,
+            "name": "Accounting fee",
+            "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWH0dsDkoa9VoLLu2vd_7SWMZ-C87E3K3ZaQ&usqp=CAU"
+        },
+        {
+            "l2_categories_id": 11,
+            "l1_categories_id": 2,
+            "name": "Annual Maintance charges",
+            "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPO-7dgYH_bnUBNt3MftKCOuweGgmbquTCaA&usqp=CAU"
+        },
+        {
+            "l2_categories_id": 12,
+            "l1_categories_id": 2,
+            "name": "Bank charges",
+            "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSLTBsSJQnn0Ja_8lc9-hiEyYEjiZPwd_NBg&usqp=CAU"
+        },
+        {
+            "l2_categories_id": 13,
+            "l1_categories_id": 2,
+            "name": "Consulting charges",
+            "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuiaRgej9WXrmOOCeiw2Knmq3UhfDQPqfp-XhDvDtF9JQlBz2woHmu7UPf8ElKp3ET5oc&usqp=CAU"
+        },
+        {
+            "l2_categories_id": 14,
+            "l1_categories_id": 2,
+            "name": "Depreciation",
+            "icon": "https://cdn.iconscout.com/icon/free/png-256/free-money-depreciation-2471262-2084693.png"
+        },
+        {
+            "l2_categories_id": 15,
+            "l1_categories_id": 2,
+            "name": "Refund from vendors",
+            "icon": "https://www.shutterstock.com/image-vector/money-transfer-icon-symbol-currency-260nw-1120235303.jpg"
+        },
+        {
+            "l2_categories_id": 16,
+            "l1_categories_id": 2,
+            "name": "Dues & Subcription",
+            "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcq0PL_dM_1ymPZhYyk7cagYoYHnD8Sfbk9Jvc9xyeXrYChUieQxJQdg2zzNdVEmP2wNU&usqp=CAU"
+        },
+        {
+            "l2_categories_id": 17,
+            "l1_categories_id": 2,
+            "name": "Education & Training",
+            "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkZ6XWEqDNbJUIXmUyVM3OenPt2F2fWM7uOg&usqp=CAU"
+        },
+        {
+            "l2_categories_id": 18,
+            "l1_categories_id": 2,
+            "name": "Employee Reimbursements",
+            "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROnZcc_zzuAFX-A-4OClhKfQxg1cUt9Ni4w9ypTY9T0nd21CE5JLBtZROyTfNnaU08EZU&usqp=CAU"
+        },
+        {
+            "l2_categories_id": 19,
+            "l1_categories_id": 2,
+            "name": "Fuel",
+            "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhub8YI3tAzBbe7bcs1f2bf4JrcN7-4veDs6vcqQc9rlkBhq5pGIUh91Ss1rEhbL53uF0&usqp=CAU"
+        }
+    ]
+}
