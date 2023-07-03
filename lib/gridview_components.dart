@@ -9,14 +9,16 @@ class GridViewWidget extends StatefulWidget {
     required this.onClicked,
     required this.onItemSelect,
     required this.optionIndex,
+    required this.showIcon,
   });
 
   final String title;
   final List lists;
   final int last;
-  final VoidCallback onClicked;
+  final Function(bool) onClicked;
   final Function(int) onItemSelect;
   final int? optionIndex;
+  final bool showIcon;
 
   @override
   State<GridViewWidget> createState() => _GridViewWidgetState();
@@ -32,7 +34,7 @@ class _GridViewWidgetState extends State<GridViewWidget> {
           style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
         const SizedBox(
-          height: 10,
+          height: 15,
         ),
         Expanded(
           child: GridView.builder(
@@ -45,8 +47,9 @@ class _GridViewWidgetState extends State<GridViewWidget> {
               itemBuilder: (context, index) {
                 if (index == widget.last && widget.lists.length > widget.last) {
                   return GestureDetector(
-                    onTap: widget.onClicked,
+                    onTap: () => widget.onClicked(widget.showIcon),
                     child: Card(
+                      color: Colors.white,
                       margin: const EdgeInsets.all(7),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -57,12 +60,15 @@ class _GridViewWidgetState extends State<GridViewWidget> {
                             height: 40,
                             alignment: Alignment.center,
                           ),
-                          const Text(
-                            'More',
-                            style: TextStyle(
-                              fontSize: 13,
+                          const Padding(
+                            padding: EdgeInsets.fromLTRB(1, 0, 1, 0),
+                            child: Text(
+                              'More',
+                              style: TextStyle(
+                                fontSize: 13,
+                              ),
+                              textAlign: TextAlign.center,
                             ),
-                            textAlign: TextAlign.center,
                           ),
                         ],
                       ),
@@ -74,6 +80,7 @@ class _GridViewWidgetState extends State<GridViewWidget> {
                   return GestureDetector(
                     onTap: () => widget.onItemSelect(listItemIndex),
                     child: Card(
+                      color: Colors.white,
                       margin: const EdgeInsets.all(7),
                       elevation: onTapped ? 4 : 1,
                       shape: RoundedRectangleBorder(
@@ -89,17 +96,20 @@ class _GridViewWidgetState extends State<GridViewWidget> {
                           Image.network(
                             onTapped
                                 ? 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZ3cGUxcNAw7jfPZiWRRTO00SQpmMPGtQf4G8kbC8HoZVCBDqkoo9LZAO0UZbKAd5szDE&usqp=CAU'
-                                : widget.lists[listItemIndex]["icon"],
+                                : widget.lists[listItemIndex].icon,
                             width: 70,
                             height: 40,
                             alignment: Alignment.center,
                           ),
-                          Text(
-                            widget.lists[listItemIndex]["name"],
-                            style: const TextStyle(
-                              fontSize: 12,
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(1, 0, 1, 0),
+                            child: Text(
+                              widget.lists[listItemIndex].name,
+                              style: const TextStyle(
+                                fontSize: 12,
+                              ),
+                              textAlign: TextAlign.center,
                             ),
-                            textAlign: TextAlign.center,
                           ),
                         ],
                       ),

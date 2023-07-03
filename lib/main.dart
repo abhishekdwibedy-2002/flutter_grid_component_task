@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:task_conponents/gridview_components.dart';
 import 'package:task_conponents/list_view.dart';
+import 'package:task_conponents/models/list.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,6 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
@@ -32,8 +34,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  List options = [];
-  List tempOptions = [];
+  List<Category> options = [];
+  List<Category> tempOptions = [];
   // customize the more option where it will show
   int endList = 5;
   int? selectedIndex;
@@ -42,16 +44,17 @@ class _MyHomePageState extends State<MyHomePage> {
   Future<void> readJson() async {
     final String response = await rootBundle.loadString('assets/sample.json');
     final data = await json.decode(response);
-    print(data);
+    List<dynamic> list = data["data"];
+    print(list);
     setState(() {
-      options = data["data"];
+      options = list.map((category) => Category.fromJson(category)).toList();
       tempOptions = List.from(options); // copy of original lists
     });
   }
 
   // Navigate To List View Page when more option is called
   // Handle The Options Selection that is selected in the list view.
-  void navigateList() {
+  void navigateList(bool showIcon) {
     Navigator.push(
       context,
       MaterialPageRoute(
@@ -59,8 +62,8 @@ class _MyHomePageState extends State<MyHomePage> {
           optionList: options,
           onOptionSelected: (index) {
             optionSelected(index);
-          }, 
-          showIcon: false,
+          },
+          showIcon: showIcon,
         ),
       ),
     );
@@ -85,7 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
   // Method To handle the select item index inside the grid view
   void itemSelect(int index) {
     setState(() {
-      // handle the temporary replacement of the selected option 
+      // handle the temporary replacement of the selected option
       //outside the grid show the first option itself in the grid
       if (flag != null) {
         tempOptions[0] = tempOptions[flag!];
@@ -113,14 +116,18 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: Center(
-        child: GridViewWidget(
-          lists: tempOptions,
-          last: endList,
-          onClicked: navigateList,
-          optionIndex: selectedIndex,
-          onItemSelect: itemSelect,
-          title: 'What is this payment for ?',
+      body: Padding(
+        padding: const EdgeInsets.all(10),
+        child: Center(
+          child: GridViewWidget(
+            lists: tempOptions,
+            last: endList,
+            onClicked: navigateList,
+            optionIndex: selectedIndex,
+            onItemSelect: itemSelect,
+            title: 'What is this payment for ?',
+            showIcon: false,
+          ),
         ),
       ),
     );
